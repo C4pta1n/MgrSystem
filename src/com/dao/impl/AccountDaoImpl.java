@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public  class AccountDaoImpl extends BaseDao<Account> implements AccountDao {
-    Account account =new Account();
+    Account account =null;
     @Override
     public Account login(String username,String password) {
         List<Account> list=new ArrayList<>();
@@ -26,6 +26,7 @@ public  class AccountDaoImpl extends BaseDao<Account> implements AccountDao {
             while(rs.next()){
                 acc.setUsername(rs.getString(1));
                 acc.setPassword(rs.getString(2));
+                acc.setPid(rs.getInt(3));
             }
         } catch (Exception e) {
             e.printStackTrace();
