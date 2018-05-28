@@ -1,5 +1,5 @@
 package com.bean;
-import java.sql.Date;
+import java.util.Date;
 public class Teacher {
     private int tno;
     private String tname;
