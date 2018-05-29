@@ -1,11 +1,8 @@
 package com.view;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-
-
 public class LoginController extends AnchorPane {
     Main application = new Main();
     @FXML

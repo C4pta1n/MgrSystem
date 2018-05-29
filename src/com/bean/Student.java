@@ -6,7 +6,6 @@ public class Student {
     private String sex;
     private Date sbirthday;
     private Department department;
-    private int spno;
     private String classno;
     private Speciality speciality;
     public int getSno() {
@@ -27,7 +26,7 @@ public class Student {
     public void setSex(String sex) {
         this.sex = sex;
     }
-    public Date getSbirthday() {
+    public Date getSbirthday(Date date) {
         return sbirthday;
     }
     public void setSbirthday(Date sbirthday) {
@@ -38,12 +37,6 @@ public class Student {
     }
     public void setDepartment(Department department) {
         this.department = department;
-    }
-    public int getSpno() {
-        return spno;
-    }
-    public void setSpno(int spno) {
-        this.spno = spno;
     }
     public String getClassno() {
         return classno;
@@ -64,7 +57,6 @@ public class Student {
         this.sex = sex;
         this.sbirthday = sbirthday;
         this.department = department;
-        this.spno = spno;
         this.classno = classno;
         this.speciality = speciality;
     }
