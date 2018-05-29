@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.web.*?>
 <?import javafx.scene.image.*?>
@@ -13,34 +14,13 @@
 <AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.AdminMgrController">
     <children>
         <BorderPane layoutX="124.0" layoutY="155.0" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <center>
-                <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-                    <tabs>
-                        <Tab text="查询个人课表">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                            </content>
-                        </Tab>
-                        <Tab text="查询个人成绩">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                            </content>
-                        </Tab>
-                        <Tab text="教学评价">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                            </content>
-                        </Tab>
-                    </tabs>
-                </TabPane>
-            </center>
             <top>
                 <BorderPane prefHeight="102.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                     <right>
                         <VBox alignment="CENTER" prefHeight="100.0" prefWidth="135.0" spacing="20.0" BorderPane.alignment="CENTER">
                             <children>
                                 <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="修改密码" />
-                                <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="注销" />
+                                <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="80.0" text="注销" />
                             </children>
                         </VBox>
                     </right>
@@ -64,6 +44,22 @@
                     </center>
                 </BorderPane>
             </top>
+         <center>
+            <SplitPane dividerPositions="0.18262806236080179" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                <AnchorPane maxWidth="160.0" minHeight="0.0" minWidth="160.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <TableView layoutX="7.0" layoutY="66.0" prefHeight="496.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn prefWidth="159.0" text="教务管理系统" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+              </items>
+            </SplitPane>
+         </center>
         </BorderPane>
     </children>
 </AnchorPane>

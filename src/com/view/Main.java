@@ -22,8 +22,7 @@ public class Main extends Application {
     private final double MINIMUM_WINDOW_HEIGHT = 400.0;
 
     AccountDao acd = new AccountDaoImpl();
-    Account account = null;
-
+    Account account;
     @Override
     public void start(Stage primaryStage) throws Exception{
         try {
@@ -54,6 +53,9 @@ public class Main extends Application {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, e);
         }
     }
+    public Account getAccount(){
+        return account;
+    }
     public boolean userLogin(String id, String password){
         account = acd.login(id,password);
         if (account != null) {
@@ -62,7 +64,10 @@ public class Main extends Application {
         }
         else return false;
     }
-
+     void userLogout(){
+        account = null;
+        gotoLogin();
+    }
 
     private Node replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
