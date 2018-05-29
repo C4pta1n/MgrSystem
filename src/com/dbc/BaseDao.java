@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
     public abstract class BaseDao<T> {
-       private Connection conn = null;
+        private static BaseDao bd = null;
+        Connection conn = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
 
         private Connection getConnection(){
-            if (conn == null){
+            if (bd == null){
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
                     conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Myschool?useSSL=true","root","");
@@ -21,7 +22,7 @@ import java.util.List;
             }
             return conn;
         }
-        /*private void close(){
+        private void close(){
             try {
                 if (rs!=null) rs.close();
                 if (pst!=null) pst.close();
@@ -29,7 +30,7 @@ import java.util.List;
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        }*/
+        }
         //更新
         public boolean update(String sql,Object...objects){
             boolean t=false;
@@ -43,6 +44,8 @@ import java.util.List;
                 if(num>0) t=true;
             } catch (SQLException e) {
                 e.printStackTrace();
+            }finally {
+                close();
             }
             return t;
         }
@@ -61,6 +64,8 @@ import java.util.List;
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
+            }finally {
+                close();
             }
 
             return list;
