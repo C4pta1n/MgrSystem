@@ -8,8 +8,8 @@ import com.bean.bean.Scores;
 import java.util.List;
 
 public interface StudentDao {
-    public Account load();
-    public List<Course> findCourse();
-    public List<Scores> findScoreByID(int sno);
-    public Evaluate evaluate();
+    public Account load(String username,String password);
+    public Course findCourseBySpno(int spno);
+    public Scores findScoreByID(int sno);
+    public boolean evaluate(int tcid,int sno);
 }
