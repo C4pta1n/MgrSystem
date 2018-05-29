@@ -4,7 +4,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.LoginController">
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
@@ -31,9 +30,6 @@
                <center>
                   <Button fx:id="login" mnemonicParsing="false" onAction="#gotologin" text="登陆" BorderPane.alignment="CENTER" />
                </center>
-               <bottom>
-                  <Label fx:id="welcome" BorderPane.alignment="CENTER" />
-               </bottom>
             </BorderPane>
          </bottom>
          <top>

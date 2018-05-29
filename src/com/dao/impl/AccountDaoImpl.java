@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public  class AccountDaoImpl extends BaseDao<Account> implements AccountDao {
-    Account account =null;
+
     @Override
     public Account login(String username,String password) {
+        Account account =null;
         List<Account> list=new ArrayList<>();
         String sql="select * from account where username=? and password=? ";
         list=query(sql,username,password);
@@ -21,14 +22,11 @@ public  class AccountDaoImpl extends BaseDao<Account> implements AccountDao {
 
     @Override
     public Account getEntity(ResultSet rs) {
-        Account acc=new Account();
+        Account acc = new Account();
         try {
-            while(rs.next()){
                 acc.setUsername(rs.getString(1));
                 acc.setPassword(rs.getString(2));
                 acc.setPid(rs.getInt(3));
-
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }

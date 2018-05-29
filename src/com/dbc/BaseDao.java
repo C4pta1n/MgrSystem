@@ -6,15 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 
     public abstract class BaseDao<T> {
-       private Connection conn = null;
+        private static BaseDao bd = null;
+        Connection conn = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
 
         private Connection getConnection(){
-            if (conn == null){
+            if (bd == null){
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
-                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Myschool?useSSL=true","root","root");
+                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Myschool?useSSL=true","root","");
                 } catch (ClassNotFoundException | SQLException e) {
                     e.printStackTrace();
                 }
@@ -43,7 +44,7 @@ import java.util.List;
                 if(num>0) t=true;
             } catch (SQLException e) {
                 e.printStackTrace();
-            } finally {
+            }finally {
                 close();
             }
             return t;
@@ -63,7 +64,7 @@ import java.util.List;
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
-            } finally {
+            }finally {
                 close();
             }
 

@@ -20,10 +20,7 @@ public class LoginController extends AnchorPane {
         this.application = application;
     }
 
-    @FXML
-    void initialize() {
-        welcome.setText("");
-    }
+
     @FXML
     public void gotologin(ActionEvent event){
         if (application.userLogin(username.getText(),password.getText())) {

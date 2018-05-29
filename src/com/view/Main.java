@@ -1,5 +1,8 @@
 package com.view;
 
+import com.bean.Account;
+import com.dao.AccountDao;
+import com.dao.impl.AccountDaoImpl;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
@@ -17,20 +20,16 @@ public class Main extends Application {
     private Stage stage;
     private final double MINIMUM_WINDOW_WIDTH = 600.0;
     private final double MINIMUM_WINDOW_HEIGHT = 400.0;
-    String id0 = "1001";
-    String password0 = "123456";
 
+    AccountDao acd = new AccountDaoImpl();
+    Account account;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        /*Parent root = FXMLLoader.load(getClass().getResource("LoginView.fxml"));
-        primaryStage.setTitle("教务系统");
-        primaryStage.setScene(new Scene(root, 600, 400));
-        primaryStage.show();*/
         try {
             stage = primaryStage;
             stage.setMinWidth(MINIMUM_WINDOW_WIDTH);
             stage.setMinHeight(MINIMUM_WINDOW_HEIGHT);
-            stage.setTitle("登陆");
+            stage.setTitle("教务系统");
             gotoLogin();
             primaryStage.show();
         } catch (Exception e) {
@@ -48,20 +47,27 @@ public class Main extends Application {
 
     public void gotoMGR(){
         try {
-            MGRController mgr = (MGRController) replaceSceneContent("MGRview.fxml");
+            StuMgrController mgr = (StuMgrController) replaceSceneContent("StuMgrView.fxml");
             mgr.setApp(this);
         } catch (Exception e) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, e);
         }
     }
-    public boolean userLogin(String id1, String password1){
-        if (id1.equals(id0) && password1.equals(password0)) {
+    public Account getAccount(){
+        return account;
+    }
+    public boolean userLogin(String id, String password){
+        account = acd.login(id,password);
+        if (account != null) {
             gotoMGR();
             return true;
         }
         else return false;
     }
-
+     void userLogout(){
+        account = null;
+        gotoLogin();
+    }
 
     private Node replaceSceneContent(String fxml) throws Exception {
         FXMLLoader loader = new FXMLLoader();
