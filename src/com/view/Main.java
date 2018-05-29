@@ -45,10 +45,25 @@ public class Main extends Application {
         }
     }
 
-    public void gotoMGR(){
+    public void gotoStuMGR(){
         try {
-            StuMgrController mgr = (StuMgrController) replaceSceneContent("StuMgrView.fxml");
-            mgr.setApp(this);
+            StuMgrController stuMgrController = (StuMgrController) replaceSceneContent("StuMgrView.fxml");
+            stuMgrController.setApp(this);
+        } catch (Exception e) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+    public void gotoTeacMGR(){
+        try {
+            TeaMgrController teaMgrController = (TeaMgrController) replaceSceneContent("TeacMgrView.fxml");
+            teaMgrController.setApp(this);
+        } catch (Exception e) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+    public void gotoAdiminMGR(){
+        try {
+            AdminMgrController adminMgrController = (AdminMgrController) replaceSceneContent("AdminMgrView.fxml");
         } catch (Exception e) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -56,10 +71,13 @@ public class Main extends Application {
     public Account getAccount(){
         return account;
     }
+
     public boolean userLogin(String id, String password){
         account = acd.login(id,password);
         if (account != null) {
-            gotoMGR();
+            if (account.getPid()==3) gotoStuMGR();
+            if (account.getPid()==2) gotoTeacMGR();
+            if (account.getPid()==1) gotoAdiminMGR();
             return true;
         }
         else return false;
@@ -104,7 +122,9 @@ public class Main extends Application {
         stage.sizeToScene();
         return (Node) loader.getController();
     }
+    public Main(){
 
+    }
     public static void main(String[] args) {
         launch(args);
     }
