@@ -3,6 +3,7 @@ import com.bean.Student;
 import com.bean.bean.Account;
 import com.bean.bean.Course;
 import com.bean.bean.Scores;
+import com.dao.DepartmentDao;
 import com.dao.SpecialityDao;
 import com.dao.StudentDao;
 import com.dbc.BaseDao;
@@ -28,17 +29,23 @@ public class StudentDaoImpl extends BaseDao<Student> implements StudentDao {
     }
 
     @Override
-    public Course findCourseBySpno(int spno) {
-        String sql = "select * from course where spno=?";
-        List<Course> list = query(sql,spno);
-        return list.get(1);
+    public List<Course> findCourseBySpno(Account account) {
+        ScoresDaoImpl sdi = new ScoresDaoImpl();
+        CourseDaoImpl cdi = new CourseDaoImpl();
+        String sql = "select * from scores where sno=?";
+        List<Scores> list = sdi.query(sql,account.getStudent().getSno());
+        String sql1 = "select * from tcourse where tcid=?";
+        List<Course> list1 = cdi.query(sql1,list);
+        String sql2 = "select * from course where spno=?";
+        List<Course> list2 = cdi.query(sql2,list1.get(0));
+        return list2;
     }
 
     @Override
-    public Scores findScoreByID(int sno) {
+    public List<Scores> findScoreByID(int sno) {
         String sql = "select * from scores where sno=?";
         List<Scores> list= query(sql,sno);
-        return list.get(2);
+        return list;
     }
 
     @Override
