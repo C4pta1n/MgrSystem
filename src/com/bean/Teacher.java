@@ -6,13 +6,13 @@ public class Teacher {
     private String tsex;
     private Date tbirthday;
     private Department department;
-    private char techtitle;
+    private String techtitle;
 
     public Teacher() {
 
     }
 
-    public Teacher(int tno, String tname, String tsex, Date tbirthday, Department department, char techtitle) {
+    public Teacher(int tno, String tname, String tsex, Date tbirthday, Department department, String techtitle) {
         this.tno = tno;
         this.tname = tname;
         this.tsex = tsex;
@@ -51,10 +51,10 @@ public class Teacher {
     public void setDepartment(Department department) {
         this.department = department;
     }
-    public char getTechtitle() {
+    public String getTechtitle() {
         return techtitle;
     }
-    public void setTechtitle(char techtitle) {
+    public void setTechtitle(String techtitle) {
         this.techtitle = techtitle;
     }
 }

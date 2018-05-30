@@ -15,7 +15,7 @@ import java.util.List;
             if (bd == null){
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
-                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Myschool?useSSL=true","root","");
+                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Myschool?useSSL=true","root","123");
                 } catch (ClassNotFoundException | SQLException e) {
                     e.printStackTrace();
                 }
@@ -67,7 +67,6 @@ import java.util.List;
             }finally {
                 close();
             }
-
             return list;
         }
         public abstract T getEntity(ResultSet rs);

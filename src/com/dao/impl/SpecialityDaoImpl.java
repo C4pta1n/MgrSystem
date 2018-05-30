@@ -13,16 +13,21 @@ public class SpecialityDaoImpl extends BaseDao<Speciality> implements Speciality
     @Override
     public Speciality findBySpno(int spno) {
         String sql = "select * from speciality where spno=?";
-        List<Speciality> list = query(sql, Speciality.class.getName(), spno);
+        List<Speciality> list = query(sql,spno);
         return  list.get(0);
     }
 
     @Override
-    public Speciality getEntity(ResultSet rs) throws SQLException {
-        Speciality sp = new Speciality();
-        sp.setSpno(rs.getInt(1));
-        sp.setDepartment(dd.findByDno(rs.getInt(2)));
-        sp.setSpname(rs.getString(3));
+    public Speciality getEntity(ResultSet rs)  {
+        Speciality sp = null;
+        try {
+            sp = new Speciality();
+            sp.setSpno(rs.getInt(1));
+            sp.setDepartment(dd.findByDno(rs.getInt(2)));
+            sp.setSpname(rs.getString(3));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return sp;
     }
 }

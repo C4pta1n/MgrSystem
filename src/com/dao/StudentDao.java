@@ -1,15 +1,13 @@
 package com.dao;
 
-import com.bean.bean.Account;
-import com.bean.bean.Course;
-import com.bean.bean.Evaluate;
-import com.bean.bean.Scores;
-
-import java.util.List;
+import com.bean.Account;
+import com.bean.Course;
+import com.bean.Evaluate;
+import com.bean.Scores;
 
 public interface StudentDao {
     public Account load(String username,String password);
-    public Course findCourseBySpno(int spno);
+    public CourseDao findCourseBySpno(int spno);
     public Scores findScoreByID(int sno);
     public boolean evaluate(int tcid,int sno);
 }
