@@ -11,11 +11,16 @@ import java.sql.SQLException;
 public class ClassDaoImpl extends BaseDao<Class> implements ClassDao {
     SpecialityDao sp = new SpecialityDaoImpl();
     @Override
-    public Class getEntity(ResultSet rs) throws SQLException {
-        Class clas = new Class();
-        clas.setSpeciality(sp.findBySpno(rs.getInt(1)));
-        clas.setClassno(rs.getString(2));
-        clas.setHeader(rs.getString(3));
+    public Class getEntity(ResultSet rs) {
+        Class clas = null;
+        try {
+            clas = new Class();
+            clas.setSpeciality(sp.findBySpno(rs.getInt(1)));
+            clas.setClassno(rs.getString(2));
+            clas.setHeader(rs.getString(3));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return clas;
     }
 }

@@ -1,6 +1,7 @@
 package com.dao.impl;
 
 import com.bean.Speciality;
+import com.dao.DepartmentDao;
 import com.dao.SpecialityDao;
 import com.dbc.BaseDao;
 

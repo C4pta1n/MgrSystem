@@ -1,13 +1,14 @@
 package com.dao.impl;
 
 import com.bean.Department;
+import com.dao.DepartmentDao;
 import com.dbc.BaseDao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class DepartmentDaoImpl extends BaseDao<Department> implements DepartmentDao{
+public class DepartmentDaoImpl extends BaseDao<Department> implements DepartmentDao {
     @Override
     public Department findByDno(int dno) {
         String sql ="select * from department where dno=?";

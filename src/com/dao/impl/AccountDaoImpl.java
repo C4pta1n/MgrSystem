@@ -2,6 +2,7 @@ package com.dao.impl;
 
 import com.bean.Account;
 import com.dao.AccountDao;
+import com.dao.StudentDao;
 import com.dao.TeacherDao;
 import com.dbc.BaseDao;
 
@@ -24,12 +25,12 @@ public  class AccountDaoImpl extends BaseDao<Account> implements AccountDao {
     @Override
     public Account getEntity(ResultSet rs) {
         Account acc = new Account();
-        TeacherDao td=new TeacherDaoImpl();
+        StudentDao td=new StudentDaoImpl();
         try {
                 acc.setUsername(rs.getString(1));
                 acc.setPassword(rs.getString(2));
                 acc.setPid(rs.getInt(3));
-                acc.setTeacher(td.findByTno(rs.getInt(5)));
+                acc.setStudent(td.findStudentBySno(rs.getInt(4)));
         } catch (Exception e) {
             e.printStackTrace();
         }

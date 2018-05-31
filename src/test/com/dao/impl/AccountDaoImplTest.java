@@ -1,10 +1,13 @@
 package test.com.dao.impl; 
 
 import com.bean.Account;
+import com.bean.Evaluate;
+import com.bean.Scores;
 import com.bean.Tcourse;
 import com.dao.AccountDao;
 import com.dao.TeacherDao;
 import com.dao.impl.AccountDaoImpl;
+import com.dao.impl.StudentDaoImpl;
 import com.dao.impl.TeacherDaoImpl;
 import org.junit.Test;
 import org.junit.Before; 
@@ -29,16 +32,17 @@ public void after() throws Exception {
 public void testLogin() throws Exception {
     AccountDao ad = new AccountDaoImpl();
     Account account = null;
-    account = ad.login("211001100","123456");
+    account = ad.login("311001101","123456");
     if (account!=null) {
         System.out.println("登陆成功");
-        TeacherDao td=new TeacherDaoImpl();
+        StudentDaoImpl sdi=new StudentDaoImpl();
         List<Tcourse> list=new ArrayList<>();
-        list=td.queryCourse(account);
-        Tcourse tcourse= new Tcourse();
+        list=sdi.queryCourse(account);
+        Tcourse tc=new Tcourse();
+        Scores s=new Scores();
         for(int i=0;i<list.size();i++){
-            tcourse=list.get(i);
-            System.out.println(tcourse.getCourse().getCname()+tcourse.getSchoolyear()+tcourse.getSemester());
+           tc=list.get(i);
+            System.out.println(tc.getCourse().getCname()+tc.getSchoolyear()+tc.getSemester());
         }
     }
     else System.out.println("登陆失败");

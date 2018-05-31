@@ -1,8 +1,5 @@
 package com.dao.impl;
-import com.bean.Student;
-import com.bean.bean.Account;
-import com.bean.bean.Course;
-import com.bean.bean.Scores;
+import com.bean.*;
 import com.dao.DepartmentDao;
 import com.dao.SpecialityDao;
 import com.dao.StudentDao;
@@ -11,34 +8,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 public class StudentDaoImpl extends BaseDao<Student> implements StudentDao {
     DepartmentDao dd = new DepartmentDaoImpl();
     SpecialityDao sd = new SpecialityDaoImpl();
-    Scanner in = new Scanner(System.in);
-    Account account =new Account();
-    @Override
-    public Account load(String username,String password) {
-        List<Account> list=new ArrayList<>();
-        String sql="select * from account where username=? and password=? ";
-        list=query(sql,username,password);
-        if(list.size()!=0) {
-            System.out.println("登录成功！");
-        }else System.out.println("用户名或密码错误，登陆失败！");
-        return account;
-    }
 
     @Override
-    public List<Course> findCourseBySpno(Account account) {
+    public List<Tcourse> queryCourse(Account account) {
         ScoresDaoImpl sdi = new ScoresDaoImpl();
-        CourseDaoImpl cdi = new CourseDaoImpl();
-        String sql = "select * from scores where sno=?";
+        Tcourse tc=new Tcourse();
+        TcourseDaoImpl tdi = new TcourseDaoImpl();
+        String sql = "select * from scores where sno=? ";
         List<Scores> list = sdi.query(sql,account.getStudent().getSno());
-        String sql1 = "select * from tcourse where tcid=?";
-        List<Course> list1 = cdi.query(sql1,list);
-        String sql2 = "select * from course where spno=?";
-        List<Course> list2 = cdi.query(sql2,list1.get(0));
-        return list2;
+        String sql1="select * from tcourse where tcid=? ";
+        List<Tcourse> listtc = new ArrayList<>();
+        for(int i=0;i<list.size();i++){
+            int k =list.get(i).getTcid();
+            tc= (Tcourse) tdi.query(sql1,k).get(0);
+            listtc.add(tc);
+        }
+        return listtc;
     }
 
     @Override
@@ -49,9 +37,7 @@ public class StudentDaoImpl extends BaseDao<Student> implements StudentDao {
     }
 
     @Override
-    public boolean evaluate(int tcid,int sno) {
-        System.out.println("请输入评价等级");
-        String rank = in.next();
+    public boolean evaluate(int tcid,int sno,String rank) {
         String sql = "update evaluate set rank=? where tcid=? and sno=?";
         boolean t = update(sql,rank,tcid,sno);
         if (t) return true;
@@ -59,9 +45,20 @@ public class StudentDaoImpl extends BaseDao<Student> implements StudentDao {
     }
 
     @Override
-    public Student getEntity(ResultSet rs) throws SQLException {
+    public Student findStudentBySno(int sno) {
+        Student stu =new Student();
+        List<Student> list =new ArrayList<>();
+        String sql="select * from student where sno=? ";
+        list=query(sql,sno);
+        stu=list.get(0);
+        return stu;
+    }
+
+    @Override
+    public Student getEntity(ResultSet rs)  {
         Student stu=new Student();
-        while(rs.next()){
+
+        try {
             stu.setSno(rs.getInt(1));
             stu.setSname(rs.getString(2));
             stu.setSex(rs.getString(3));
@@ -69,6 +66,8 @@ public class StudentDaoImpl extends BaseDao<Student> implements StudentDao {
             stu.setDepartment(dd.findByDno(rs.getInt(5)));
             stu.setSpeciality(sd.findBySpno(rs.getInt(6)));
             stu.setClassno(rs.getString(7));
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return stu;
     }

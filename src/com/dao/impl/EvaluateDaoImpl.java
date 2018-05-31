@@ -9,13 +9,19 @@ import java.sql.SQLException;
 
 
 public class EvaluateDaoImpl extends BaseDao<Evaluate> implements EvaluateDao {
-    TcourseDao td = new TcourseDaoImpl();
+
     @Override
-    public Evaluate getEntity(ResultSet rs) throws SQLException {
+    public Evaluate getEntity(ResultSet rs)  {
+        TcourseDao td = new TcourseDaoImpl();
         Evaluate evaluate = new Evaluate();
-        evaluate.setTcourse(td.findByTcid(rs.getInt(1)));
-        evaluate.setSno(rs.getInt(2));
-        evaluate.setRank(rs.getString(3));
-        return null;
+        try {
+
+            evaluate.setTcourse(td.findByTcid(rs.getInt(1)));
+            evaluate.setSno(rs.getInt(2));
+            evaluate.setRank(rs.getString(3));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return evaluate;
     }
 }

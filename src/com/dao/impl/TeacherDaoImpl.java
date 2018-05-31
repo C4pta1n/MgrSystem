@@ -1,7 +1,8 @@
 package com.dao.impl;
 
 import com.bean.*;
-import com.dao.TcourseDao;
+import com.dao.DepartmentDao;
+import com.dao.ScoresDao;
 import com.dao.TeacherDao;
 import com.dbc.BaseDao;
 
@@ -12,13 +13,24 @@ import java.util.List;
 
 public class TeacherDaoImpl extends BaseDao<Teacher> implements TeacherDao {
     @Override
-    public boolean updateScores(int sno, int tcid) {
-        return false;
+    public boolean updateScores(int sno,int cno,int score) {
+        String sql="select * from tcourse where cno=? ";
+        List<Tcourse> list= new ArrayList<>();
+        TcourseDaoImpl tdi=new TcourseDaoImpl();
+        list=tdi.query(sql,cno);
+        sql="update scores set score=? where sno=? and tcid=? ";
+        ScoresDaoImpl sdi=new ScoresDaoImpl();
+        boolean t=sdi.update(sql,score,sno,list.get(0).getTcid());
+        return t;
     }
 
     @Override
-    public List<Scores> queryScores(int sno, int tcid) {
-        return null;
+    public List<Scores> queryScores(Account account) {
+        List<Scores> list=new ArrayList<>();
+        ScoresDaoImpl sd=new ScoresDaoImpl();
+        String sql="select scores.sno,scores.tcid,scores.score  from scores,tcourse where scores.tcid=tcourse.tcid and tcourse.tno=? ";
+        list=sd.query(sql,account.getTeacher().getTno());
+        return list;
     }
 
     @Override
@@ -33,8 +45,9 @@ public class TeacherDaoImpl extends BaseDao<Teacher> implements TeacherDao {
     @Override
     public List<Evaluate> queryEvaluate(Account account) {
         List<Evaluate> listeva=new ArrayList<>();
+        EvaluateDaoImpl ed=new EvaluateDaoImpl();
         String sql="select evaluate.tcid,evaluate.sno,evaluate.rank from evaluate,tcourse where evaluate.tcid=tcourse.tcid and tcourse.tno=? ";
-
+        listeva=ed.query(sql,account.getTeacher().getTno());
         return listeva;
     }
 
