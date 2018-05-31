@@ -21,6 +21,18 @@ public  class AccountDaoImpl extends BaseDao<Account> implements AccountDao {
     }
 
     @Override
+    public boolean changePassword(Account account,String password,String password0,String password1) {
+        String sql = "update account set password = ? where username = ?";
+        if (password.equals(account.getPassword())) {
+            if (password0.equals(password1)) {
+                boolean f = update(sql,password0,account.getUsername());
+                return f;
+            }
+        }
+        return false;
+    }
+
+    @Override
     public Account getEntity(ResultSet rs) {
         Account acc = new Account();
         try {
@@ -32,4 +44,5 @@ public  class AccountDaoImpl extends BaseDao<Account> implements AccountDao {
         }
         return acc;
     }
+
 }

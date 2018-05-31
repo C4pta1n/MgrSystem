@@ -23,9 +23,10 @@ public void after() throws Exception {
 public void testLogin() throws Exception {
     AccountDao ad = new AccountDaoImpl();
     Account account = null;
-    account = ad.login("1001","123456");
+    account = ad.login("10001","123456");
     if (account!=null) System.out.println("登陆成功");
     else System.out.println("登陆失败");
+    System.out.println(ad.changePassword(account,"123456","1","1"));
 } 
 
 /** 

@@ -19,7 +19,7 @@
                     <right>
                         <VBox alignment="CENTER" prefHeight="100.0" prefWidth="135.0" spacing="20.0" BorderPane.alignment="CENTER">
                             <children>
-                                <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="修改密码" />
+                                <Button fx:id="changPasswordButton" mnemonicParsing="false" onAction="#setChangPasswordButton" prefHeight="30.0" prefWidth="80.0" text="修改密码" />
                                 <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="80.0" text="注销" />
                             </children>
                         </VBox>
@@ -35,7 +35,7 @@
                         <HBox spacing="20.0" BorderPane.alignment="CENTER">
                             <children>
                                 <Label layoutX="204.0" layoutY="115.0" prefHeight="70.0" prefWidth="114.0" text="欢迎：" />
-                                <Label layoutX="276.0" layoutY="113.0" prefHeight="75.0" prefWidth="141.0" />
+                                <Label fx:id="username" layoutX="276.0" layoutY="113.0" prefHeight="75.0" prefWidth="141.0" />
                             </children>
                             <BorderPane.margin>
                                 <Insets left="20.0" />

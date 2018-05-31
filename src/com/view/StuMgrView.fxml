@@ -18,17 +18,49 @@
               <tabs>
                 <Tab text="查询个人课表">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView layoutX="310.0" layoutY="102.0" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn maxWidth="400.0" minWidth="250.0" prefWidth="334.0" text="课程名称" />
+                                    <TableColumn maxWidth="400.0" minWidth="250.0" prefWidth="294.0" text="课程学分" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
                   </content>
                 </Tab>
                 <Tab text="查询个人成绩">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView layoutX="262.0" layoutY="79.0" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn maxWidth="400.0" minWidth="217.0" prefWidth="323.0" text="课程成绩" />
+                                    <TableColumn maxWidth="400.0" minWidth="126.0" prefWidth="263.0" text="课程学分" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
                   </content>
                 </Tab>
                   <Tab text="教学评价">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <SplitPane dividerPositions="0.2828507795100223" layoutX="316.0" layoutY="131.0" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane maxWidth="250.0" minHeight="0.0" minWidth="250.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <TableView fx:id="courseEvaTable" maxWidth="250.0" minWidth="250.0" prefHeight="457.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn fx:id="cnameColumn" maxWidth="249.0" minWidth="0.0" prefWidth="249.0" text="课程名称" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                                </items>
+                              </SplitPane>
+                           </children></AnchorPane>
                     </content>
                   </Tab>
               </tabs>
@@ -39,7 +71,7 @@
                <right>
                   <VBox alignment="CENTER" prefHeight="100.0" prefWidth="135.0" spacing="20.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="修改密码" />
+                        <Button fx:id="changPasswordButton" mnemonicParsing="false" onAction="#setChangPasswordButton" prefHeight="30.0" prefWidth="80.0" text="修改密码" />
                         <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logout" prefHeight="30.0" prefWidth="80.0" text="注销" />
                      </children>
                   </VBox>

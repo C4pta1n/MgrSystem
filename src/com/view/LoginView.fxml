@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.LoginController">
+<AnchorPane maxHeight="400.0" maxWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.LoginController">
    <children>
       <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
          <center>
@@ -33,7 +33,7 @@
             </BorderPane>
          </bottom>
          <top>
-            <BorderPane prefHeight="120.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <BorderPane maxHeight="120.0" maxWidth="600.0" prefHeight="120.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <center>
                   <Label text="教务系统" BorderPane.alignment="CENTER" />
                </center>

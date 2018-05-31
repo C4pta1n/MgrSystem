@@ -1,9 +1,12 @@
 package com.view;
 
 import com.bean.Account;
+import com.bean.Course;
 import com.dao.AccountDao;
 import com.dao.impl.AccountDaoImpl;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Node;
@@ -23,6 +26,9 @@ public class Main extends Application {
 
     AccountDao acd = new AccountDaoImpl();
     Account account;
+
+
+    private ObservableList<Course> courses = FXCollections.observableArrayList(new Course("数字电路"));
     @Override
     public void start(Stage primaryStage) throws Exception{
         try {
@@ -64,10 +70,24 @@ public class Main extends Application {
     public void gotoAdiminMGR(){
         try {
             AdminMgrController adminMgrController = (AdminMgrController) replaceSceneContent("AdminMgrView.fxml");
+            adminMgrController.setApp(this);
         } catch (Exception e) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, e);
         }
     }
+
+
+
+    public ObservableList<Course> getCourses(){
+        /*
+        *
+        * 获得课程；
+        *
+        *
+        * */
+        return courses;
+    }
+
     public Account getAccount(){
         return account;
     }

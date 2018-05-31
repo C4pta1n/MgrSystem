@@ -1,26 +1,35 @@
 package com.bean;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Course {
     private int cno;
-    private String cname;
+    private final StringProperty cname;
     private Speciality speciality;
     private int ctno;
     private int lecture;
     private int experiment;
     private int semester;
     private int credit;
+
     public int getCno() {
         return cno;
     }
     public void setCno(int cno) {
-        this.cno = cno;
+        this.cno=cno;
     }
+
     public String getCname() {
-        return cname;
+        return cname.get();
     }
     public void setCname(String cname) {
-        this.cname = cname;
+        this.cname.set(cname);
     }
+    public StringProperty cnameProperty(){
+        return cname;
+    }
+
     public Speciality getSpeciality() {
         return speciality;
     }
@@ -57,18 +66,10 @@ public class Course {
     public void setCredit(int credit) {
         this.credit = credit;
     }
-    public Course(int cno, String cname, Speciality speciality, int ctno, int lecture, int experiment, int semester,
-                  int credit) {
-        this.cno = cno;
-        this.cname = cname;
-        this.speciality = speciality;
-        this.ctno = ctno;
-        this.lecture = lecture;
-        this.experiment = experiment;
-        this.semester = semester;
-        this.credit = credit;
+    public Course(String cname) {
+        this.cname = new SimpleStringProperty(cname);
     }
     public Course() {
-        // TODO Auto-generated constructor stub
+        this(null);
     }
 }
