@@ -10,20 +10,65 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.StuMgrController">
+<AnchorPane minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.StuMgrController">
    <children>
       <BorderPane layoutX="124.0" layoutY="155.0" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
             <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
+                  <Tab text="个人信息">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="127.0" layoutY="78.0" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <GridPane maxHeight="300.0" maxWidth="600.0" prefHeight="300.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="学号 :" />
+                                          <Label fx:id="stuIdLable" prefHeight="20.0" prefWidth="154.0" GridPane.columnIndex="1" />
+                                          <Label text="姓名 : " GridPane.columnIndex="2" />
+                                          <Label fx:id="stuNameLable" prefHeight="20.0" prefWidth="162.0" GridPane.columnIndex="3" />
+                                          <Label text="性别 :" GridPane.rowIndex="1" />
+                                          <Label text="生日 :" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Label fx:id="stuSexLable" prefHeight="20.0" prefWidth="173.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label fx:id="stuSpecialityLable" prefHeight="20.0" prefWidth="194.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label text="专业 :" GridPane.rowIndex="2" />
+                                          <Label text="学院 :" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Label fx:id="stuDepartmentLable" prefHeight="20.0" prefWidth="154.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                          <Label fx:id="stuBirthdayLable" prefHeight="20.0" prefWidth="158.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                          <Label text="班级 :" GridPane.rowIndex="3" />
+                                          <Label fx:id="stuclazzLable" prefHeight="20.0" prefWidth="192.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                       </children>
+                                    </GridPane>
+                                 </center>
+                              </BorderPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
                 <Tab text="查询个人课表">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TableView layoutX="310.0" layoutY="102.0" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="tcourseTableView" layoutX="310.0" layoutY="102.0" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
-                                  <TableColumn maxWidth="400.0" minWidth="250.0" prefWidth="334.0" text="课程名称" />
-                                    <TableColumn maxWidth="400.0" minWidth="250.0" prefWidth="294.0" text="课程学分" />
+                                    <TableColumn fx:id="cnoColumn" prefWidth="174.0" text="课程编号" />
+                                  <TableColumn fx:id="tcnameColumn" maxWidth="400.0" minWidth="193.0" prefWidth="193.0" text="课程名称" />
+                                    <TableColumn fx:id="creditColumn" maxWidth="465.0" minWidth="182.0" prefWidth="205.0" text="课程学分" />
+                                    <TableColumn fx:id="schoolYearColumn" prefWidth="155.0" text="学年" />
+                                    <TableColumn fx:id="semesterColumn" prefWidth="172.0" text="学期" />
                                 </columns>
                               </TableView>
                            </children></AnchorPane>
@@ -33,10 +78,11 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TableView layoutX="262.0" layoutY="79.0" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="scoresTableView" layoutX="262.0" layoutY="79.0" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columns>
-                                  <TableColumn maxWidth="400.0" minWidth="217.0" prefWidth="323.0" text="课程成绩" />
-                                    <TableColumn maxWidth="400.0" minWidth="126.0" prefWidth="263.0" text="课程学分" />
+                                    <TableColumn fx:id="courseIdtColumn" prefWidth="246.0" text="课程编号" />
+                                  <TableColumn fx:id="courseNameColumn" maxWidth="403.0" minWidth="98.0" prefWidth="288.0" text="课程名称" />
+                                    <TableColumn fx:id="scoreColumn" maxWidth="500.0" minWidth="126.0" prefWidth="310.0" text="课程成绩" />
                                 </columns>
                               </TableView>
                            </children></AnchorPane>
@@ -52,12 +98,59 @@
                                        <children>
                                           <TableView fx:id="courseEvaTable" maxWidth="250.0" minWidth="250.0" prefHeight="457.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
-                                              <TableColumn fx:id="cnameColumn" maxWidth="249.0" minWidth="0.0" prefWidth="249.0" text="课程名称" />
+                                                <TableColumn fx:id="coursenoColmn" prefWidth="82.0" text="课程编号" />
+                                              <TableColumn fx:id="cnameColumn" maxWidth="249.0" minWidth="0.0" prefWidth="84.0" text="课程名称" />
+                                                <TableColumn fx:id="tnameColumn" prefWidth="83.0" text="任课老师" />
                                             </columns>
                                           </TableView>
                                        </children>
                                     </AnchorPane>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <BorderPane layoutX="160.0" layoutY="89.0" prefHeight="457.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <center>
+                                                <GridPane maxHeight="200.0" maxWidth="600.0" prefHeight="0.0" prefWidth="0.0" BorderPane.alignment="CENTER">
+                                                  <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <Label alignment="TOP_LEFT" maxWidth="120.0" prefHeight="20.0" text="课程名称 ：">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font></Label>
+                                                      <Label fx:id="courseNameLable" prefHeight="20.0" prefWidth="120.0" textFill="#1a22bb" GridPane.columnIndex="1">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font></Label>
+                                                      <Label prefWidth="120.0" text="任课老师 ：" GridPane.columnIndex="2">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font></Label>
+                                                      <Label fx:id="teaNameLable" prefHeight="20.0" prefWidth="120.0" textFill="#1a22bb" GridPane.columnIndex="3">
+                                                         <font>
+                                                            <Font size="20.0" />
+                                                         </font></Label>
+                                                   </children>
+                                                   <BorderPane.margin>
+                                                      <Insets left="80.0" />
+                                                   </BorderPane.margin>
+                                                </GridPane>
+                                             </center>
+                                             <bottom>
+                                                <BorderPane prefHeight="170.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+                                                   <top>
+                                                      <Button fx:id="evaluateButton" mnemonicParsing="false" onAction="#setEvaluateButton" prefHeight="13.0" prefWidth="101.0" text="评价" BorderPane.alignment="CENTER" />
+                                                   </top>
+                                                </BorderPane>
+                                             </bottom>
+                                          </BorderPane>
+                                       </children></AnchorPane>
                                 </items>
                               </SplitPane>
                            </children></AnchorPane>
@@ -84,10 +177,16 @@
                   </ImageView>
                </left>
                <center>
-                  <HBox spacing="20.0" BorderPane.alignment="CENTER">
+                  <HBox spacing="10.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label layoutX="204.0" layoutY="115.0" prefHeight="70.0" prefWidth="114.0" text="欢迎：" />
-                        <Label fx:id="username" layoutX="276.0" layoutY="113.0" prefHeight="75.0" prefWidth="141.0" />
+                        <Label layoutX="204.0" layoutY="115.0" prefHeight="80.0" prefWidth="80.0" text="欢迎  ：">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Label>
+                        <Label fx:id="username" layoutX="276.0" layoutY="113.0" prefHeight="81.0" prefWidth="146.0" textFill="#1a22bb">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Label>
                      </children>
                      <BorderPane.margin>
                         <Insets left="20.0" />

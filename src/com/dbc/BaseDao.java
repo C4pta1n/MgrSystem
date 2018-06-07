@@ -15,7 +15,7 @@ import java.util.List;
             if (bd == null){
                 try {
                     Class.forName("com.mysql.jdbc.Driver");
-                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Myschool?useSSL=true","root","123");
+                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Myschool?useSSL=true","root","");
                 } catch (ClassNotFoundException | SQLException e) {
                     e.printStackTrace();
                 }

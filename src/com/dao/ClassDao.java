@@ -1,5 +1,7 @@
 package com.dao;
 
-public interface ClassDao {
+import com.bean.Class;
 
+public interface ClassDao {
+    public Class findById(int classno);
 }

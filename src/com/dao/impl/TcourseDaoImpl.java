@@ -2,10 +2,7 @@ package com.dao.impl;
 
 import com.bean.Speciality;
 import com.bean.Tcourse;
-import com.dao.CourseDao;
-import com.dao.SpecialityDao;
-import com.dao.TcourseDao;
-import com.dao.TeacherDao;
+import com.dao.*;
 import com.dbc.BaseDao;
 
 import java.sql.ResultSet;
@@ -20,14 +17,15 @@ public class TcourseDaoImpl extends BaseDao<Tcourse> implements TcourseDao {
         TeacherDao td=new TeacherDaoImpl();
         CourseDao cd=new CourseDaoImpl();
         SpecialityDao sd=new SpecialityDaoImpl();
+        ClassDao cld = new ClassDaoImpl();
         try {
             tc.setTcid(rs.getInt(1));
             tc.setTeacher(td.findByTno(rs.getInt(2)));
             tc.setSpeciality(sd.findBySpno(rs.getInt(3)));
-            tc.setClassno(rs.getString(4));
-            tc.setCourse(cd.findByCno(rs.getInt(5)));
-            tc.setSemester(rs.getString(6));
-            tc.setSchoolyear(rs.getString(7));
+            tc.setClazz(cld.findById(rs.getInt(7)));
+            tc.setCourse(cd.findByCno(rs.getString(4)));
+            tc.setSemester(rs.getString(5));
+            tc.setSchoolyear(rs.getString(6));
         } catch (SQLException e) {
             e.printStackTrace();
         }

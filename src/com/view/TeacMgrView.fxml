@@ -1,68 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.web.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.TeaMgrController">
+<AnchorPane minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.TeaMgrController">
     <children>
         <BorderPane layoutX="124.0" layoutY="155.0" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
                 <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
                     <tabs>
+                  <Tab text="个人信息">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <BorderPane layoutX="36.0" layoutY="65.0" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <center>
+                                    <GridPane maxHeight="300.0" maxWidth="600.0" prefHeight="300.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="学院" GridPane.rowIndex="2" />
+                                          <Label text="生日" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                          <Label text="性别" GridPane.rowIndex="1" />
+                                          <Label text="姓名" GridPane.columnIndex="2" />
+                                          <Label text="职称" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                          <Label text="工号" />
+                                          <Label fx:id="tecLabel" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                          <Label fx:id="birthDayLabel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                          <Label fx:id="tNameLabel" GridPane.columnIndex="3" />
+                                          <Label fx:id="departmentLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="sexLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label fx:id="tidLabel" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                 </center>
+                              </BorderPane>
+                              <GridPane>
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+                        <Tab text="查询学生成绩">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <SplitPane dividerPositions="0.4086859688195991" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <TableView fx:id="showScoreTable" layoutY="56.0" prefHeight="457.0" prefWidth="248.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn fx:id="courseIdColumn" prefWidth="122.0" text="课程编号" />
+                                              <TableColumn fx:id="courseNameColumn" prefWidth="125.0" text="课程名称" />
+                                                <TableColumn fx:id="stuIdforscColumn" prefWidth="115.0" text="学生学号" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <GridPane layoutX="47.0" layoutY="68.0" prefHeight="253.0" prefWidth="453.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="166.0" minWidth="10.0" prefWidth="115.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="114.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="117.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="105.0" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="学生名字" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                <Label fx:id="stuNameLabel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                <Label fx:id="courseNameLabel" GridPane.columnIndex="3" />
+                                                <Label text="课程名称" GridPane.columnIndex="2" />
+                                                <Label fx:id="stuIdLable" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label fx:id="courseIdLabel" GridPane.columnIndex="1" />
+                                                <Label text="学生学号" GridPane.rowIndex="1" />
+                                                <Label text="课程编号" />
+                                                <Label fx:id="scoreLabel" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                <Label fx:id="creditLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label text="课程成绩" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <Label text="课程学分" GridPane.rowIndex="2" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
+                           </children></AnchorPane>
+                            </content>
+                        </Tab>
                         <Tab text="录入学生成绩">
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <BorderPane prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                 <center>
-                                    <GridPane maxHeight="200.0" maxWidth="600.0" BorderPane.alignment="CENTER">
-                                      <columnConstraints>
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="228.0" />
-                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="372.0" minWidth="10.0" prefWidth="372.0" />
-                                      </columnConstraints>
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
+                              <SplitPane dividerPositions="0.29797979797979796" layoutX="85.0" layoutY="57.0" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <items>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                        <children>
-                                          <Label prefHeight="20.0" prefWidth="202.0" text="待录入成绩的学生学号 ：" />
-                                          <TextField fx:id="stuIdText" GridPane.columnIndex="1" />
+                                          <TableView fx:id="enteringScoreTableView" layoutX="14.0" layoutY="52.0" prefHeight="457.0" prefWidth="264.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                              <TableColumn fx:id="courseIdColumn0" prefWidth="75.0" text="课程编号" />
+                                              <TableColumn fx:id="courseNameColumn0" prefWidth="83.0" text="课程名称" />
+                                                <TableColumn fx:id="stuIdforscColumn0" prefWidth="105.0" text="学生学号" />
+                                            </columns>
+                                          </TableView>
                                        </children>
-                                       <BorderPane.margin>
-                                          <Insets top="50.0" />
-                                       </BorderPane.margin>
-                                    </GridPane>
-                                 </center>
-                                 <bottom>
-                                    <Button fx:id="enteringButton" mnemonicParsing="false" onAction="#enteringScore" prefHeight="52.0" prefWidth="110.0" text="录入成绩" BorderPane.alignment="CENTER">
-                                       <BorderPane.margin>
-                                          <Insets bottom="100.0" />
-                                       </BorderPane.margin>
-                                    </Button>
-                                 </bottom>
-                              </BorderPane>
+                                    </AnchorPane>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                       <children>
+                                          <GridPane layoutX="51.0" layoutY="132.0" prefHeight="190.0" prefWidth="512.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="课程编号" />
+                                                <Label text="学生名字" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                <Label text="课程名称" GridPane.columnIndex="2" />
+                                                <Label text="学生学号" GridPane.rowIndex="1" />
+                                                <Label text="课程成绩" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <Label text="课程学分" GridPane.rowIndex="2" />
+                                                <Label fx:id="courseIdLabel0" GridPane.columnIndex="1" />
+                                                <Label fx:id="creditLabel0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label fx:id="stuNameLabel0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                <Label fx:id="stuIdLable0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label fx:id="courseNameLabel0" GridPane.columnIndex="3" />
+                                                <Button fx:id="enterScoreButton" mnemonicParsing="false" onAction="#setEnterScoreButton" text="录入成绩" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                </items>
+                              </SplitPane>
                            </children></AnchorPane>
-                            </content>
-                        </Tab>
-                        <Tab text="查询学生成绩">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                             </content>
                         </Tab>
                         <Tab text="查询课表">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="teaCoursesTableView" layoutX="101.0" layoutY="6.0" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="tcidColumn" prefWidth="150.0" text="上课编号" />
+                                  <TableColumn fx:id="clazzColumn" minWidth="0.0" prefWidth="145.0" text="班级" />
+                                    <TableColumn fx:id="courseIdColumn1" prefWidth="173.0" text="课程编号" />
+                                    <TableColumn fx:id="courseNameColumn1" prefWidth="151.0" text="课程名称" />
+                                    <TableColumn fx:id="semesterColumn" minWidth="0.0" prefWidth="140.0" text="学期" />
+                                    <TableColumn fx:id="schoolYearColumn" prefWidth="140.0" text="学年" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
                             </content>
                         </Tab>
                   <Tab text="查询教学质量评价">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="evaTableView" layoutX="78.0" layoutY="73.0" prefHeight="459.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="courseIdColumn2" prefWidth="145.0" text="课程编号" />
+                                  <TableColumn fx:id="courseNameColumn2" prefWidth="178.0" text="课程名称" />
+                                    <TableColumn fx:id="semesterColumn0" prefWidth="205.0" text="学期" />
+                                    <TableColumn fx:id="schoolYearColumn0" prefWidth="132.0" text="学年" />
+                                    <TableColumn fx:id="evaluateColumn" prefWidth="239.0" text="评价" />
+                                </columns>
+                              </TableView>
+                           </children></AnchorPane>
                     </content>
                   </Tab>
                     </tabs>

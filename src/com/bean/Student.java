@@ -26,7 +26,7 @@ public class Student {
     public void setSex(String sex) {
         this.sex = sex;
     }
-    public Date getSbirthday(Date date) {
+    public Date getSbirthday() {
         return sbirthday;
     }
     public void setSbirthday(Date sbirthday) {

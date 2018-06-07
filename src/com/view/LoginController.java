@@ -8,8 +8,6 @@ public class LoginController extends AnchorPane {
     @FXML
     private Button login;
     @FXML
-    private Label welcome;
-    @FXML
     private TextField username;
     @FXML
     private PasswordField password;

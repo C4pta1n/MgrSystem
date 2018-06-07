@@ -28,7 +28,7 @@
          <bottom>
             <BorderPane prefHeight="113.0" prefWidth="600.0" BorderPane.alignment="CENTER">
                <center>
-                  <Button fx:id="login" mnemonicParsing="false" onAction="#gotologin" text="登陆" BorderPane.alignment="CENTER" />
+                  <Button fx:id="login" mnemonicParsing="false" onAction="#gotologin" onDragEntered="#gotologin" text="登陆" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
          </bottom>

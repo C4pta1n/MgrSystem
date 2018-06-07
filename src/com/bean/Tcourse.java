@@ -5,7 +5,7 @@ public class Tcourse {
     private Teacher teacher;
     private Speciality speciality;
     private int tcid;
-    private String classno;
+    private  Class clazz;
     private String semester;
     private String schoolyear;
     public Course getCourse() {
@@ -32,11 +32,11 @@ public class Tcourse {
     public void setTcid(int tcid) {
         this.tcid = tcid;
     }
-    public String getClassno() {
-        return classno;
+    public Class getClazz() {
+        return clazz;
     }
-    public void setClassno(String classno) {
-        this.classno = classno;
+    public void setClazz(Class clazz) {
+        this.clazz = clazz;
     }
     public String getSemester() {
         return semester;
@@ -50,13 +50,13 @@ public class Tcourse {
     public void setSchoolyear(String schoolyear) {
         this.schoolyear = schoolyear;
     }
-    public Tcourse(Course course, Teacher teacher, Speciality speciality, int tcid, String classno, String semester,
+    public Tcourse(Course course, Teacher teacher, Speciality speciality, int tcid, Class clazz, String semester,
                    String schoolyear) {
         this.course = course;
         this.teacher = teacher;
         this.speciality = speciality;
         this.tcid = tcid;
-        this.classno = classno;
+        this.clazz = clazz;
         this.semester = semester;
         this.schoolyear = schoolyear;
     }

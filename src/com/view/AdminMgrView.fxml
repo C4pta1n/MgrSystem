@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.effect.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.web.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.AdminMgrController">
+<AnchorPane minHeight="600.0" minWidth="900.0" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.view.AdminMgrController">
     <children>
         <BorderPane layoutX="124.0" layoutY="155.0" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -34,8 +32,8 @@
                     <center>
                         <HBox spacing="20.0" BorderPane.alignment="CENTER">
                             <children>
-                                <Label layoutX="204.0" layoutY="115.0" prefHeight="70.0" prefWidth="114.0" text="欢迎：" />
-                                <Label fx:id="username" layoutX="276.0" layoutY="113.0" prefHeight="75.0" prefWidth="141.0" />
+                                <Label layoutX="204.0" layoutY="115.0" prefHeight="70.0" prefWidth="69.0" text="欢迎：" />
+                                <Label fx:id="username" layoutX="276.0" layoutY="113.0" prefHeight="70.0" prefWidth="141.0" />
                             </children>
                             <BorderPane.margin>
                                 <Insets left="20.0" />
@@ -55,17 +53,211 @@
                                 <tabs>
                                   <Tab text="录入用户信息">
                                     <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <BorderPane layoutX="41.0" layoutY="41.0" prefHeight="344.0" prefWidth="874.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <center>
+                                                      <GridPane maxHeight="200.0" maxWidth="600.0" BorderPane.alignment="CENTER">
+                                                        <columnConstraints>
+                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="223.0" />
+                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="381.0" minWidth="10.0" prefWidth="377.0" />
+                                                        </columnConstraints>
+                                                        <rowConstraints>
+                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        </rowConstraints>
+                                                         <children>
+                                                            <Label text="请输入录入用户的编号 ：" />
+                                                            <Label text="请输入用户的权限 ：" GridPane.rowIndex="1" />
+                                                            <TextField fx:id="userPidField" text="（学生：3，老师：2，管理员：1）" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                            <TextField fx:id="userIdField" GridPane.columnIndex="1" />
+                                                         </children>
+                                                      </GridPane>
+                                                   </center>
+                                                   <bottom>
+                                                      <Button fx:id="enterUserButton" mnemonicParsing="false" onAction="#setEnterUserButton" prefHeight="36.0" prefWidth="93.0" text="录入" BorderPane.alignment="CENTER">
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="60.0" />
+                                                         </BorderPane.margin>
+                                                      </Button>
+                                                   </bottom>
+                                                </BorderPane>
+                                             </children></AnchorPane>
                                     </content>
                                   </Tab>
                                   <Tab text="删除用户信息">
                                     <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <BorderPane layoutX="104.0" layoutY="60.0" prefHeight="344.0" prefWidth="874.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <center>
+                                                      <GridPane maxHeight="200.0" maxWidth="600.0" BorderPane.alignment="CENTER">
+                                                        <columnConstraints>
+                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="210.0" />
+                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="390.0" minWidth="10.0" prefWidth="390.0" />
+                                                        </columnConstraints>
+                                                        <rowConstraints>
+                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        </rowConstraints>
+                                                         <children>
+                                                            <Label text="请输入删除用户的编号 ：" />
+                                                            <TextField fx:id="userIdField0" GridPane.columnIndex="1" />
+                                                         </children>
+                                                      </GridPane>
+                                                   </center>
+                                                   <bottom>
+                                                      <Button fx:id="delUserButton" mnemonicParsing="false" onAction="#setDelUserButton" prefHeight="38.0" prefWidth="88.0" text="删除" BorderPane.alignment="CENTER">
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="60.0" />
+                                                         </BorderPane.margin>
+                                                      </Button>
+                                                   </bottom>
+                                                </BorderPane>
+                                             </children></AnchorPane>
                                     </content>
                                   </Tab>
                                     <Tab text="修改用户信息">
                                       <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TabPane layoutX="98.0" layoutY="14.0" prefHeight="344.0" prefWidth="874.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <tabs>
+                                                    <Tab text="修改管理员信息">
+                                                      <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <BorderPane layoutX="160.0" layoutY="27.0" prefHeight="305.0" prefWidth="874.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                     <center>
+                                                                        <GridPane maxHeight="200.0" maxWidth="600.0" BorderPane.alignment="CENTER">
+                                                                          <columnConstraints>
+                                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="432.0" minWidth="10.0" prefWidth="240.0" />
+                                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="614.0" minWidth="10.0" prefWidth="360.0" />
+                                                                          </columnConstraints>
+                                                                          <rowConstraints>
+                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                          </rowConstraints>
+                                                                           <children>
+                                                                              <Label text="修改姓名" GridPane.rowIndex="1" />
+                                                                              <Label text="修改性别" GridPane.rowIndex="2" />
+                                                                              <TextField fx:id="userNameChangeField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                              <TextField fx:id="userIdChangeField" GridPane.columnIndex="1" />
+                                                                              <Label text="请输入需要修改的账号" />
+                                                                              <ChoiceBox fx:id="sexChange" prefHeight="30.0" prefWidth="417.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                           </children>
+                                                                        </GridPane>
+                                                                     </center>
+                                                                     <bottom>
+                                                                        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#setUpdateButton" prefHeight="30.0" prefWidth="74.0" text="修改" BorderPane.alignment="CENTER">
+                                                                           <BorderPane.margin>
+                                                                              <Insets bottom="20.0" />
+                                                                           </BorderPane.margin>
+                                                                        </Button>
+                                                                     </bottom>
+                                                                  </BorderPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                      </content>
+                                                    </Tab>
+                                                    <Tab text="修改老师信息">
+                                                      <content>
+                                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <BorderPane layoutX="70.0" layoutY="69.0" prefHeight="305.0" prefWidth="874.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                     <center>
+                                                                        <GridPane maxHeight="250.0" maxWidth="600.0" prefHeight="135.0" prefWidth="196.0" BorderPane.alignment="CENTER">
+                                                                          <columnConstraints>
+                                                                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="185.0" minWidth="10.0" prefWidth="177.0" />
+                                                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="123.0" />
+                                                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                          </columnConstraints>
+                                                                          <rowConstraints>
+                                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                          </rowConstraints>
+                                                                           <children>
+                                                                              <Label maxWidth="600.0" text="请输入需要修改的账号" />
+                                                                              <DatePicker fx:id="birthdayChange" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                              <Label prefHeight="20.0" prefWidth="139.0" text="           修改姓名" GridPane.columnIndex="2" />
+                                                                              <Label text="修改学院" GridPane.rowIndex="2" />
+                                                                              <Label prefHeight="20.0" prefWidth="139.0" text="           修改性别" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                                              <Label prefHeight="20.0" prefWidth="145.0" text="           修改职称" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                                              <TextField fx:id="userNameChangeField0" GridPane.columnIndex="3" />
+                                                                              <TextField fx:id="userIdChangeField0" GridPane.columnIndex="1" />
+                                                                              <ChoiceBox fx:id="departmentChange" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                              <ChoiceBox fx:id="techtitleChange" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                                              <ChoiceBox fx:id="sexChange0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                                              <Label text="修改生日" GridPane.rowIndex="1" />
+                                                                           </children>
+                                                                        </GridPane>
+                                                                     </center>
+                                                                     <bottom>
+                                                                        <Button fx:id="updateButton0" mnemonicParsing="false" onAction="#setUpdateButton0" prefHeight="30.0" prefWidth="73.0" text="修改" BorderPane.alignment="CENTER">
+                                                                           <BorderPane.margin>
+                                                                              <Insets bottom="20.0" />
+                                                                           </BorderPane.margin>
+                                                                        </Button>
+                                                                     </bottom>
+                                                                  </BorderPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                      </content>
+                                                    </Tab>
+                                                      <Tab text="修改学生信息">
+                                                        <content>
+                                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                               <children>
+                                                                  <BorderPane layoutX="53.0" layoutY="14.0" prefHeight="305.0" prefWidth="874.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                     <center>
+                                                                        <GridPane maxWidth="600.0" BorderPane.alignment="CENTER">
+                                                                          <columnConstraints>
+                                                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="10.0" prefWidth="162.0" />
+                                                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="138.0" />
+                                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                          </columnConstraints>
+                                                                          <rowConstraints>
+                                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                          </rowConstraints>
+                                                                           <children>
+                                                                              <Label text="修改姓名" GridPane.rowIndex="1" />
+                                                                              <Label text="       修改性别" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                                              <Label text="       修改专业" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                                              <Label text="修改生日" GridPane.rowIndex="2" />
+                                                                              <Label text="修改学院" GridPane.rowIndex="3" />
+                                                                              <Label text="请输入需要修改的账号" />
+                                                                              <ChoiceBox fx:id="sexchange1" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                                              <Label text="       修改班级" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                                              <ChoiceBox fx:id="specialityChange" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                                              <ChoiceBox fx:id="departmentChange0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                              <TextField fx:id="userIdChangeField1" GridPane.columnIndex="1" />
+                                                                              <TextField fx:id="userNameChangeField1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                              <TextField fx:id="classChangeField" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                                                              <DatePicker fx:id="birthdayChange0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                           </children>
+                                                                        </GridPane>
+                                                                     </center>
+                                                                     <bottom>
+                                                                        <Button fx:id="UpdateButton1" mnemonicParsing="false" onAction="#setUpdateButton1" prefHeight="30.0" prefWidth="72.0" text="修改" BorderPane.alignment="CENTER">
+                                                                           <BorderPane.margin>
+                                                                              <Insets bottom="20.0" />
+                                                                           </BorderPane.margin>
+                                                                        </Button>
+                                                                     </bottom>
+                                                                  </BorderPane>
+                                                               </children>
+                                                            </AnchorPane>
+                                                        </content>
+                                                      </Tab>
+                                                  </tabs>
+                                                </TabPane>
+                                             </children></AnchorPane>
                                       </content>
                                     </Tab>
                                 </tabs>
@@ -87,14 +279,35 @@
                                   </Tab>
                                   <Tab text="删除课表">
                                     <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <BorderPane layoutX="260.0" layoutY="51.0" prefHeight="344.0" prefWidth="874.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                   <center>
+                                                      <GridPane maxHeight="200.0" maxWidth="600.0" BorderPane.alignment="CENTER">
+                                                        <columnConstraints>
+                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" prefWidth="210.0" />
+                                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="390.0" minWidth="10.0" prefWidth="390.0" />
+                                                        </columnConstraints>
+                                                        <rowConstraints>
+                                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        </rowConstraints>
+                                                         <children>
+                                                            <Label text="请输入删除的上课编号" />
+                                                            <TextField fx:id="delTcidField" GridPane.columnIndex="1" />
+                                                         </children>
+                                                      </GridPane>
+                                                   </center>
+                                                   <bottom>
+                                                      <Button fx:id="delCourseButton" mnemonicParsing="false" onAction="#setDelCourseButton" prefHeight="30.0" prefWidth="85.0" text="删除" BorderPane.alignment="CENTER">
+                                                         <BorderPane.margin>
+                                                            <Insets bottom="60.0" />
+                                                         </BorderPane.margin>
+                                                      </Button>
+                                                   </bottom>
+                                                </BorderPane>
+                                             </children></AnchorPane>
                                     </content>
                                   </Tab>
-                                    <Tab text="修改课表">
-                                      <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                      </content>
-                                    </Tab>
                                 </tabs>
                               </TabPane>
                            </children>
@@ -107,26 +320,180 @@
                            <children>
                               <TabPane layoutX="129.0" layoutY="104.0" prefHeight="407.0" prefWidth="898.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <tabs>
-                                  <Tab text="查新教学质量评价">
-                                    <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                    </content>
-                                  </Tab>
                                   <Tab text="查询用户信息">
                                     <content>
-                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <SplitPane dividerPositions="0.29128440366972475" layoutX="14.0" layoutY="40.0" prefHeight="344.0" prefWidth="874.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <items>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                         <children>
+                                                            <Accordion prefHeight="344.0" prefWidth="874.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <panes>
+                                                                <TitledPane animated="false" text="学生">
+                                                                  <content>
+                                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                           <children>
+                                                                              <TableView fx:id="stuMessageTableView" layoutX="7.0" layoutY="-13.0" prefHeight="251.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                <columns>
+                                                                                  <TableColumn fx:id="stuIdColumn" prefWidth="82.0" text="学号" />
+                                                                                  <TableColumn fx:id="stuNameColumn" prefWidth="93.0" text="姓名" />
+                                                                                </columns>
+                                                                              </TableView>
+                                                                           </children>
+                                                                        </AnchorPane>
+                                                                  </content>
+                                                                </TitledPane>
+                                                                <TitledPane animated="false" text="老师">
+                                                                  <content>
+                                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                                           <children>
+                                                                              <TableView fx:id="teaMessageTableView" layoutX="14.0" layoutY="14.0" prefHeight="251.0" prefWidth="248.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                                <columns>
+                                                                                  <TableColumn fx:id="teaIdColumn" prefWidth="108.0" text="工号" />
+                                                                                  <TableColumn fx:id="teaNameColumn" prefWidth="115.0" text="姓名" />
+                                                                                </columns>
+                                                                              </TableView>
+                                                                           </children></AnchorPane>
+                                                                  </content>
+                                                                </TitledPane>
+                                                              </panes>
+                                                            </Accordion>
+                                                         </children>
+                                                      </AnchorPane>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="342.0" prefWidth="645.0">
+                                                         <children>
+                                                            <BorderPane layoutX="123.0" layoutY="38.0" prefHeight="342.0" prefWidth="662.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <center>
+                                                                  <GridPane maxHeight="300.0" maxWidth="600.0" prefHeight="300.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+                                                                    <columnConstraints>
+                                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                     <children>
+                                                                        <Label text="学院 ：" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                                        <Label text="专业（学生） ：" GridPane.rowIndex="2" />
+                                                                        <Label text="生日 ：" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                                        <Label text="性别 ：" GridPane.rowIndex="1" />
+                                                                        <Label text="姓名 ：" GridPane.columnIndex="2" />
+                                                                        <Label fx:id="departmentLabel" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                                        <Label fx:id="stuIdLabel" GridPane.columnIndex="1" />
+                                                                        <Label fx:id="birthdayLabel" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                                        <Label fx:id="stuNameLabel" GridPane.columnIndex="3" />
+                                                                        <Label fx:id="specialityLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                        <Label fx:id="sexLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                        <Label text="学号 ：" />
+                                                                        <Label text="班级（学生） ：" GridPane.rowIndex="3" />
+                                                                        <Label fx:id="clazzLabel" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                                        <Label text="职称（教师）：" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                                        <Label fx:id="techtitleLabel" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                                                     </children>
+                                                                  </GridPane>
+                                                               </center>
+                                                            </BorderPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </items>
+                                                </SplitPane>
+                                             </children></AnchorPane>
                                     </content>
                                   </Tab>
-                                    <Tab text="查询用户课表">
-                                      <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                                      </content>
-                                    </Tab>
                                     <Tab text="查询学生成绩">
                                       <content>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <SplitPane dividerPositions="0.20642201834862386" layoutX="65.0" layoutY="52.0" prefHeight="344.0" prefWidth="874.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <items>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                         <children>
+                                                            <TableView fx:id="queryScoreTableView" layoutY="42.0" prefHeight="342.0" prefWidth="256.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <columns>
+                                                                <TableColumn fx:id="courseIdColumn" prefWidth="75.0" text="课程编号" />
+                                                                <TableColumn fx:id="courseNameColumn" prefWidth="103.0" text="课程名称" />
+                                                                  <TableColumn fx:id="stuIdColumn0" prefWidth="77.0" text="学生学号" />
+                                                              </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                         <children>
+                                                            <BorderPane layoutX="65.0" layoutY="94.0" prefHeight="342.0" prefWidth="608.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                               <center>
+                                                                  <GridPane maxHeight="300.0" maxWidth="600.0" BorderPane.alignment="CENTER">
+                                                                    <columnConstraints>
+                                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                                    </columnConstraints>
+                                                                    <rowConstraints>
+                                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                                    </rowConstraints>
+                                                                     <children>
+                                                                        <Label text="课程编号 ：" />
+                                                                        <Label fx:id="courseScoreLabel" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                                        <Label fx:id="stuNameLabel0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                                        <Label fx:id="courseNameLabel" GridPane.columnIndex="3" />
+                                                                        <Label text="课程成绩 ：" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                                        <Label text="学生姓名 ：" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                                        <Label text="课程名称 ：" GridPane.columnIndex="2" />
+                                                                        <Label fx:id="courseCreditLabel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                                        <Label fx:id="stuIdLabel0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                        <Label fx:id="courseIdLabel" GridPane.columnIndex="1" />
+                                                                        <Label text="课程学分 ：" GridPane.rowIndex="2" />
+                                                                        <Label text="学生学号 ：" GridPane.rowIndex="1" />
+                                                                     </children>
+                                                                  </GridPane>
+                                                               </center>
+                                                            </BorderPane>
+                                                         </children>
+                                                      </AnchorPane>
+                                                  </items>
+                                                </SplitPane>
+                                             </children></AnchorPane>
                                       </content>
                                     </Tab>
+                                  <Tab text="查询教学质量评价">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <SplitPane dividerPositions="0.29797979797979796" layoutX="146.0" layoutY="63.0" prefHeight="344.0" prefWidth="874.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <items>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                         <children>
+                                                            <TableView fx:id="teaMessageTableView0" layoutX="42.0" layoutY="33.0" prefHeight="342.0" prefWidth="256.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <columns>
+                                                                <TableColumn fx:id="teaIdColumn0" prefWidth="121.0" text="教师编号" />
+                                                                <TableColumn fx:id="teaNameColumn0" prefWidth="134.0" text="教师姓名" />
+                                                              </columns>
+                                                            </TableView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                                         <children>
+                                                            <TableView fx:id="showEvaTableView" layoutX="193.0" layoutY="79.0" prefHeight="342.0" prefWidth="608.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                              <columns>
+                                                                <TableColumn fx:id="courseIdColumn1" prefWidth="75.0" text="课程编号" />
+                                                                <TableColumn fx:id="courseNameColumn1" prefWidth="75.0" text="课程名称" />
+                                                                  <TableColumn fx:id="evaluateColumn" prefWidth="75.0" text="评价" />
+                                                              </columns>
+                                                            </TableView>
+                                                         </children></AnchorPane>
+                                                  </items>
+                                                </SplitPane>
+                                             </children></AnchorPane>
+                                    </content>
+                                  </Tab>
                                 </tabs>
                               </TabPane>
                            </children>

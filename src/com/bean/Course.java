@@ -1,23 +1,28 @@
 package com.bean;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Course {
-    private int cno;
+    private final StringProperty cno;
     private final StringProperty cname;
     private Speciality speciality;
     private int ctno;
     private int lecture;
     private int experiment;
     private int semester;
-    private int credit;
+    private final StringProperty credit;
 
-    public int getCno() {
-        return cno;
+    public String getCno() {
+        return cno.get();
     }
-    public void setCno(int cno) {
-        this.cno=cno;
+    public void setCno(String cno) {
+        this.cno.set(cno);
+    }
+    public StringProperty cnoProperty(){
+        return cno;
     }
 
     public String getCname() {
@@ -60,16 +65,23 @@ public class Course {
     public void setSemester(int semester) {
         this.semester = semester;
     }
-    public int getCredit() {
+
+    public String getCredit() {
+        return credit.get();
+    }
+    public void setCredit(String credit) {
+        this.credit.set(credit);
+    }
+    public StringProperty creditPriperty(){
         return credit;
     }
-    public void setCredit(int credit) {
-        this.credit = credit;
-    }
-    public Course(String cname) {
+
+    public Course(String cname,String credit,String cno) {
         this.cname = new SimpleStringProperty(cname);
+        this.credit = new SimpleStringProperty(credit);
+        this.cno = new SimpleStringProperty(cno);
     }
     public Course() {
-        this(null);
+        this(null,null,null);
     }
 }
